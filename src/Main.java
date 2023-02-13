@@ -42,12 +42,8 @@ public class Main {
             sum += prices[i] * counts[i];
         }
         boolean doBonus = sum >= MIN_COST_FOR_BONUS;
-        sum = 0;
         for (int i = 0; i < products.length; i++) {
             if (counts[i] != 0) {
-<<<<<<<<< Temporary merge branch 1
-                System.out.println("\t" + products[i] + " " + (doBonus ? counts[i] + 1 : counts[i]) + " шт. за " + (prices[i] * counts[i]) + " руб.");
-=========
                 boolean isOnSale = false;
                 for (String saleProduct : productsOnSale) {
                     if (products[i].equals(saleProduct)) {
@@ -56,13 +52,12 @@ public class Main {
                 }
 
                 if (isOnSale) {
-                    System.out.println("\t" + products[i] + " " + (doBonus ? counts[i] + 1 : counts[i]) + " шт. за " + (prices[i] * (counts[i] / 3 * 2 + counts[i] % 3)) + " руб. (распродажа!)");
+                    System.out.println("\t" + products[i] + " " + (doBonus ? counts[i] + 1 : counts[i]) + " шт. за " + (prices[i] * counts[i]) + " руб.");
                     sum += prices[i] * (counts[i] / 3 * 2 + counts[i] % 3);
                 } else {
-                    System.out.println("\t" + products[i] + " " + (doBonus ? counts[i] + 1 : counts[i])  + " шт. за " + (prices[i] * counts[i]) + " руб.");
+                    System.out.println("\t" + products[i] + " " + (doBonus ? counts[i] + 1 : counts[i]) + " шт. за " + (prices[i] * counts[i]) + " руб.");
                     sum += prices[i] * counts[i];
                 }
->>>>>>>>> Temporary merge branch 2
             }
         }
         System.out.println("Итого: " + sum + " руб.");
